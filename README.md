@@ -59,4 +59,18 @@ Place for my configs, links and all those stuff, i would miss on an another mach
 
 - [alexcvzz.vscode-sqlite](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)
 
+#### 
+
+- [gurumukhi.selected-lines-count](https://marketplace.visualstudio.com/items?itemName=gurumukhi.selected-lines-count)
+
+#### NVIM
+
+- [asvetliakov.vscode-neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
+
+```init.vim
+if if !exists('g:vscode')
+    set tabstop=4
+endif
+```
+
 ### Settings

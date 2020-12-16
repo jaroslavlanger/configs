@@ -72,13 +72,8 @@
             "-file-line-error",
             "%DOC%"
         ]
-    }
-],
-"markdown.extension.toc.levels": "2..3",
-"markdown.extension.toc.omittedFromToc": {
-    "*.md": [
-        "## Obsah",
-        "## Content",
-    ]
-  }
+    }],
+    "markdown.extension.toc.levels": "2..3",
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "keyboard.dispatch": "keyCode",
 }
