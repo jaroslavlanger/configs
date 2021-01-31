@@ -15,9 +15,13 @@ if !exists('g:vscode')
 
     " Plug 'christoomey/vim-tmux-navigator'
 
+    " Color theme.
     Plug 'morhetz/gruvbox'
 
     " Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+
+    " Plugin to generate table of contents for Markdown files.
+    Plug 'mzlogin/vim-markdown-toc'
 
     " Initialize plugin system
     call plug#end()
@@ -232,4 +236,9 @@ if !exists('g:vscode')
     " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
     " " Resume latest coc list
     " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+    " mzlogin/vim-markdown-toc options.
+    let g:vmt_fence_text = 'TOC'
+    let g:vmt_fence_closing_text = '/TOC'
+
 endif
