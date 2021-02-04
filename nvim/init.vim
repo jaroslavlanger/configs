@@ -83,6 +83,7 @@ if !exists('g:vscode')
     set smarttab
     " set cindent
 
+    set cursorline
     set colorcolumn=80
 
     colorscheme gruvbox
