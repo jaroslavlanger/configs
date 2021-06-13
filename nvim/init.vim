@@ -16,7 +16,10 @@ if !exists('g:vscode')
     " Plug 'christoomey/vim-tmux-navigator'
 
     " Color theme.
+    let g:gruvbox_contrast_light = 'medium'
     Plug 'morhetz/gruvbox'
+    set termguicolors
+    set background=light
 
     " Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
@@ -74,7 +77,7 @@ if !exists('g:vscode')
     set nu!
     set relativenumber
     set list
-    set listchars=eol:$
+    set listchars=eol:$,trail:?
 
     set tabstop=4
     set softtabstop=0
@@ -92,7 +95,7 @@ if !exists('g:vscode')
 
     " " sync open file with NERDTree
     " " " Check if NERDTree is open or active
-    " function! IsNERDTreeOpen()        
+    " function! IsNERDTreeOpen()
     " return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
     " endfunction
 

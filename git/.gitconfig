@@ -1,0 +1,8 @@
+[user]
+	email = langeja5@fit.cvut.cz
+	name = Jaroslav Langer
+[core]
+	editor = vim
+[diff]
+	tool = vimdiff
+	wsErrorHighlight = all
