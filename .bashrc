@@ -133,3 +133,6 @@ export HISTIGNORE="ls:tree:echo:less:cat:tac:tail:head:bash:exit:history"
 
 # Set Vi mode for bash.
 set -o vi
+
+# Set NVim as a default editor.
+EDITOR=nvim
