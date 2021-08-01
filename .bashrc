@@ -130,3 +130,6 @@ if ! shopt -oq posix; then
   fi
 fi
 export HISTIGNORE="ls:tree:echo:less:cat:tac:tail:head:bash:exit:history"
+
+# Set Vi mode for bash.
+set -o vi
