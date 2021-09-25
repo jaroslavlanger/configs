@@ -1,8 +1,7 @@
 [user]
-	email = langeja5@fit.cvut.cz
+	email = langer.jaros@gmail.com
 	name = Jaroslav Langer
 [core]
-	editor = vim
+	editor = nvim
 [diff]
-	tool = vimdiff
 	wsErrorHighlight = all
