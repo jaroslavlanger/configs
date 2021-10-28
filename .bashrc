@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# remap caps lock to escape
+setxkbmap -option caps:escape
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
