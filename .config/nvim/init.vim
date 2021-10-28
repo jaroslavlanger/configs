@@ -49,3 +49,6 @@ setlocal spell!
 " mzlogin/vim-markdown-toc options.
 let g:vmt_fence_text = 'TOC'
 let g:vmt_fence_closing_text = '/TOC'
+
+" Vim settings from google.github.io/styleguide/pyguide.html
+source $HOME/.config/nvim/google_python_style.vim
