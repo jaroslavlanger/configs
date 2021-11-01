@@ -1,20 +1,9 @@
-" This config file is based on Ben Awad's init.vim:
+" Inspirations:
 " gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f
+" github.com/ThePrimeagen/.dotfiles
+" realpython.com/vim-and-python-a-match-made-in-heaven/
 
-" Specify a directory for plugins
-call plug#begin('~/.vim/plugins')
-
-" Smart completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Color theme.
-Plug 'morhetz/gruvbox'
-
-" Plugin to generate table of contents for Markdown files.
-Plug 'mzlogin/vim-markdown-toc'
-
-" Initialize plugin system
-call plug#end()
+syntax on
 
 " Searching case sensitivity: vim.fandom.com/wiki/Searching
 set ignorecase
@@ -29,22 +18,44 @@ set list
 set listchars=eol:$,trail:?
 
 " Indentation: vim.fandom.com/wiki/Indenting_source_code
-set tabstop=4
-set softtabstop=0
 set expandtab
 set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 set smarttab
 
 set cursorline
 set colorcolumn=80
+
+setlocal spell!
+
+" Folding: vim.fandom.com/wiki/Folding
+set foldmethod=indent
+set foldlevel=99
+" Make views automatic: vim.fandom.com/wiki/Make_views_automatic
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
+" Specify a directory for plugins
+call plug#begin('~/.config/nvim/plugins')
+
+" Color theme
+Plug 'morhetz/gruvbox'
+" Git integration
+Plug 'tpope/vim-fugitive'
+" Smart completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plugin to generate table of contents for Markdown files.
+Plug 'mzlogin/vim-markdown-toc'
+
+" Initialize plugin system
+call plug#end()
 
 " Color theme
 let g:gruvbox_contrast_light = 'medium'
 colorscheme gruvbox
 set termguicolors
 set background=light
-
-setlocal spell!
 
 " mzlogin/vim-markdown-toc options.
 let g:vmt_fence_text = 'TOC'
