@@ -78,11 +78,11 @@ if ${use_color} ; then
     }
 
     if [[ ${EUID} == 0 ]] ; then
-        PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
+        PS1='\[\033[01;31m\][\h\[\033[01;36m\] \w\[\033[01;31m\]]\$\[\033[00m\] '
     else
         # Escape sequences \[\033[01;32m\] - bold, green
         # Bash PROMPTING \u - username \W - current directory \w - full path
-        PS1='\[\033[01;32m\][\u@\h\[\033[01;31m\]$(parse_git_branch)\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
+        PS1='\[\033[01;32m\][\u@\h\[\033[01;31m\]$(parse_git_branch)\[\033[01;37m\] \w\[\033[01;32m\]]\$\[\033[00m\] '
     fi
 
     alias ls='ls --color=auto'
