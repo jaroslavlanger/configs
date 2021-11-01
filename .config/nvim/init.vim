@@ -43,6 +43,8 @@ call plug#begin('~/.config/nvim/plugins')
 Plug 'morhetz/gruvbox'
 " Git integration
 Plug 'tpope/vim-fugitive'
+" File system tree browsing
+Plug 'scrooloose/nerdtree'
 " Smart completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plugin to generate table of contents for Markdown files.
@@ -56,6 +58,16 @@ let g:gruvbox_contrast_light = 'medium'
 colorscheme gruvbox
 set termguicolors
 set background=light
+
+let mapleader = " "
+
+nnoremap <leader>n :NERDTreeToggle<CR>
+
+" CoC go-to code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " mzlogin/vim-markdown-toc options.
 let g:vmt_fence_text = 'TOC'
