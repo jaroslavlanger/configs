@@ -5,3 +5,6 @@
 	editor = nvim
 [diff]
 	wsErrorHighlight = all
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
