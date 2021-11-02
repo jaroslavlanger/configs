@@ -29,6 +29,9 @@ set colorcolumn=80
 
 setlocal spell!
 
+" Keeps at least this number of lines above or below while scrolling.
+set scrolloff=8
+
 " Folding: vim.fandom.com/wiki/Folding
 set foldmethod=indent
 set foldlevel=99
