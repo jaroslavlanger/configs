@@ -33,8 +33,9 @@ setlocal spell!
 set scrolloff=8
 
 " Folding: vim.fandom.com/wiki/Folding
-set foldmethod=indent
-set foldlevel=99
+" Allows manual folding besides the indent folding.
+autocmd BufReadPre * setlocal foldmethod=indent
+autocmd BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
 " Make views automatic: vim.fandom.com/wiki/Make_views_automatic
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
@@ -65,6 +66,7 @@ set background=light
 let mapleader = " "
 
 nnoremap <leader>n :NERDTreeToggle<CR>
+let NERDTreeShowLineNumbers=1
 
 " CoC go-to code navigation.
 nmap <silent> gd <Plug>(coc-definition)
