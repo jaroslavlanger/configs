@@ -68,6 +68,9 @@ let mapleader = " "
 nnoremap <leader>n :NERDTreeToggle<CR>
 let NERDTreeShowLineNumbers=1
 
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
 " CoC go-to code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
