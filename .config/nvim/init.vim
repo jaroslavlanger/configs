@@ -67,9 +67,9 @@ let mapleader = " "
 
 nnoremap <leader>n :NERDTreeToggle<CR>
 let NERDTreeShowLineNumbers=1
-
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " CoC go-to code navigation.
 nmap <silent> gd <Plug>(coc-definition)
