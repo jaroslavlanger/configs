@@ -66,6 +66,8 @@ set background=light
 let mapleader = " "
 
 nnoremap <leader>n :NERDTreeToggle<CR>
+" Mirror the NERDTree before showing it. This makes it the same on all tabs.
+nnoremap <leader>m :NERDTreeMirror<CR>:NERDTreeFocus<CR>
 let NERDTreeShowLineNumbers=1
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
