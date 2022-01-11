@@ -1,0 +1,31 @@
+# See: packaging.python.org/en/latest/tutorials/installing-packages/
+
+# Math
+numpy
+scikit-learn
+imbalanced-learn
+
+# Visualizations
+matplotlib
+seaborn
+plotly
+kaleido
+
+# Data
+pandas
+jupyterlab
+lxml
+BeautifulSoup4
+xlrd
+html5lib
+h5py
+
+# Web
+requests
+pywebcopy
+
+# Images
+pillow
+
+# Performance
+Cython
