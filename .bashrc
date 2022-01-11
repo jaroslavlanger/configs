@@ -127,7 +127,7 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=10000
-
+# techrepublic.com/article/linux-command-line-tips-history-and-histignore-in-bash/
 export HISTIGNORE="ls:tree:echo:less:cat:tac:tail:head:bash:exit:history"
 
 # If set, the pattern "**" used in a pathname expansion context will
