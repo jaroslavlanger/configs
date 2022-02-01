@@ -162,3 +162,5 @@ ex ()
 set -o vi
 # Set neovim as a default editor.
 EDITOR=nvim
+# Python debugger choice.
+export PYTHONBREAKPOINT=ipdb.set_trace
