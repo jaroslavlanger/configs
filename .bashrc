@@ -123,12 +123,15 @@ shopt -s expand_aliases
 
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=10000
+# Unlimited command history both in file and memory.
+HISTSIZE=-1
+HISTFILESIZE=-1
 # techrepublic.com/article/linux-command-line-tips-history-and-histignore-in-bash/
 export HISTIGNORE="ls:tree:echo:less:cat:tac:tail:head:bash:exit:history"
+# Does not store command duplicates in history.
+export HISTCONTROL=ignoredups
+# Ctrl-S does not freeze terminal, it does forward search instead.
+stty -ixon
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
