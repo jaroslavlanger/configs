@@ -15,13 +15,13 @@ set relativenumber
 
 " Show invisible characters: vim.fandom.com/wiki/Highlight_unwanted_spaces
 set list
-set listchars=eol:$,trail:?
+set listchars=eol:$,trail:?,tab:\\t
 
 " Indentation: vim.fandom.com/wiki/Indenting_source_code
 set expandtab
 set shiftwidth=4
 set softtabstop=4
-set tabstop=4
+set tabstop=8
 set smarttab
 
 set cursorline
@@ -53,6 +53,17 @@ Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plugin to generate table of contents for Markdown files.
 Plug 'mzlogin/vim-markdown-toc'
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release --locked
+    else
+      !cargo build --release --locked --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
 " Initialize plugin system
 call plug#end()
@@ -82,6 +93,8 @@ nmap <silent> gr <Plug>(coc-references)
 " mzlogin/vim-markdown-toc options.
 let g:vmt_fence_text = 'TOC'
 let g:vmt_fence_closing_text = '/TOC'
+" euclio/vim-markdown-composer
+let g:markdown_composer_autostart = 0
 
 " Vim settings from google.github.io/styleguide/pyguide.html
 source $HOME/.config/nvim/google_python_style.vim
