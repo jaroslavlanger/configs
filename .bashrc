@@ -167,3 +167,5 @@ set -o vi
 EDITOR=nvim
 # Python debugger choice.
 export PYTHONBREAKPOINT=ipdb.set_trace
+# Sourcing Rust environment.
+. "$HOME/.cargo/env"
