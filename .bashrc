@@ -2,11 +2,55 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# remap caps lock to escape
-setxkbmap -option caps:escape
-
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+# Unlimited command history both in file and memory.
+HISTSIZE=-1
+HISTFILESIZE=-1
+# Do not store commands beginning with space or immediate duplicates.
+HISTCONTROL=ignorespace:ignoredups
+HISTIGNORE="ls:tree:echo:less:cat:tac:tail:head:bash:exit:history"
+# Ctrl-S does not freeze terminal, it does forward search instead.
+stty -ixon
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+shopt -s globstar
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+    xterm*|rxvt*)
+        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1" ;;
+    *) ;;
+esac
+
 
 colors() {
     local fgc bgc vals seq0
@@ -35,7 +79,18 @@ colors() {
     done
 }
 
-[ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+    bash_completion_usr='/usr/share/bash-completion/bash_completion'
+    if [ -r $bash_completion_usr -a -f $bash_completion_usr ]; then
+        source $bash_completion_usr
+    elif [ -r '/etc/bash_completion' -a -f '/etc/bash_completion' ]; then
+        source '/etc/bash_completion'
+    fi
+    unset bash_completion
+fi
 
 # Change the window title of X terminals
 case ${TERM} in
@@ -111,31 +166,12 @@ alias more=less
 
 xhost +local:root > /dev/null 2>&1
 
-# Bash won't get SIGWINCH if another process is in the foreground.
-# Enable checkwinsize so that bash will check the terminal size when
-# it regains control.  #65623
-# http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
-shopt -s checkwinsize
 
 shopt -s expand_aliases
 
 # export QT_SELECT=4
 
-# Enable history appending instead of overwriting.  #139609
-shopt -s histappend
-# Unlimited command history both in file and memory.
-HISTSIZE=-1
-HISTFILESIZE=-1
-# techrepublic.com/article/linux-command-line-tips-history-and-histignore-in-bash/
-export HISTIGNORE="ls:tree:echo:less:cat:tac:tail:head:bash:exit:history"
-# Does not store command duplicates in history.
-export HISTCONTROL=ignoredups
-# Ctrl-S does not freeze terminal, it does forward search instead.
-stty -ixon
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-shopt -s globstar
 #
 # # ex - archive extractor
 # # usage: ex <file>
@@ -169,3 +205,6 @@ EDITOR=nvim
 export PYTHONBREAKPOINT=ipdb.set_trace
 # Sourcing Rust environment.
 . "$HOME/.cargo/env"
+
+# remap caps lock to escape
+setxkbmap -option caps:escape
