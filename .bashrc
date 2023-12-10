@@ -75,15 +75,13 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -1 --color=auto'
+    alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
     #alias grep='grep --color=auto'
     #alias fgrep='fgrep --color=auto'
     #alias egrep='egrep --color=auto'
-else
-    alias ls='ls -1'
 fi
 
 # colored GCC warnings and errors
@@ -93,6 +91,7 @@ fi
 #alias ll='ls -l'
 #alias la='ls -A'
 #alias l='ls -CF'
+#alias lsl='ls -1'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -124,18 +123,5 @@ setxkbmap -option caps:escape
 PATH=$PATH:~/.local/bin
 
 [ -f "/home/jarda/.ghcup/env" ] && source "/home/jarda/.ghcup/env" # ghcup-env
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jarda/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/jarda/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jarda/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/jarda/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
+. "$HOME/.cargo/env"

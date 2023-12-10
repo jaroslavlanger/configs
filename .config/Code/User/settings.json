@@ -1,0 +1,21 @@
+{
+    "workbench.colorTheme": "Solarized Light",
+    "editor.fontSize": 16,
+    "editor.rulers": [80,120],
+    "window.zoomLevel": 2,
+    "keyboard.dispatch": "keyCode",
+    "vim.enableNeovim": true,
+    "vim.neovimUseConfigFile": true,
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "workbench.sideBar.location": "right"
+}
