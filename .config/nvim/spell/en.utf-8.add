@@ -1,6 +1,10 @@
 Kolmogorov
 Frequentism
 serializable
-nonblocking
 Deserialize
+deserializing
+variadic
 broadcasted
+nonblocking
+postgres
+docker
