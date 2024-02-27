@@ -36,6 +36,12 @@ vim.keymap.set({'n', 'v'}, '<Space>', 'NOP')
 vim.keymap.set('n', '<leader>n', ':Ex<CR>')
 vim.keymap.set({'n', 'v'}, '<leader>p', '\"_c<Esc>p')
 
+-- Automatic commands
+-- Keep clipboard data after leave
+vim.api.nvim_create_autocmd("VimLeave", {
+  pattern = "*",
+  command = "call system('xclip -selection c', getreg('+'))",
+})
 
 -- Plugins
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
