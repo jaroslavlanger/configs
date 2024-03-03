@@ -137,11 +137,11 @@ fi
 set -o vi
 # Set neovim as a default editor.
 EDITOR=nvim
-export XDG_CONFIG_HOME=~/r/configs/.config
+export XDG_CONFIG_HOME="$HOME/Desktop/configs/.config"
 # remap caps lock to escape
 setxkbmap -option caps:escape
 PATH=$PATH:~/.local/bin
 
-[ -f "/home/jarda/.ghcup/env" ] && source "/home/jarda/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 . "$HOME/.cargo/env"
