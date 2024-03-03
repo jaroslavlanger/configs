@@ -1,8 +1,7 @@
 [init]
 	defaultBranch = main
-[user]
-	email = langer.jaros@gmail.com
-	name = Jaroslav Langer
+[push]
+	autoSetupRemote = true
 [core]
 	editor = nvim
 [diff]
