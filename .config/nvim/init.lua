@@ -17,7 +17,7 @@ vim.opt.listchars = 'eol:$,trail:?,tab:\\t'
 
 -- Line and column highlighting: vim.fandom.com/wiki/Highlight_current_line
 vim.opt.cursorline = true
-vim.opt.colorcolumn = {80}
+vim.opt.colorcolumn = {72, 80, 100}
 
 -- Indentation: vim.fandom.com/wiki/Indenting_source_code
 vim.opt.expandtab = true
