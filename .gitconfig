@@ -4,8 +4,16 @@
 	autoSetupRemote = true
 [core]
 	editor = nvim
+	whitespace = tab-in-indent
 [diff]
-	wsErrorHighlight = all
 	tool = nvimdiff
 [difftool "nvimdiff"]
 	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[merge]
+	tool = nvimdiff
+[mergetool "nvimdiff"]
+	layout = "LOCAL,BASE,REMOTE / MERGED"
+[mergetool "vscode"]
+	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+[alias]
+	push-restart = push -o ci.variable=\"CONTROL_STRING=restart\"
