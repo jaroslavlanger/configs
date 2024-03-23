@@ -26,6 +26,9 @@ vim.opt.softtabstop = 4
 vim.opt.tabstop = 8
 vim.opt.smarttab = true
 
+-- Folding: https://neovim.io/doc/user/fold.html
+vim.opt.foldmethod = 'indent'
+
 vim.opt.spell = true
 
 vim.g.mapleader = ' '
