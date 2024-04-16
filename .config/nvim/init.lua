@@ -36,7 +36,7 @@ vim.g.mapleader = ' '
 
 -- Remaps
 vim.keymap.set({'n', 'v'}, '<Space>', 'NOP')
-vim.keymap.set('n', '<leader>n', ':Ex<CR>')
+vim.keymap.set('n', '<leader>n', ':tab split<CR>:Ex<CR>')
 vim.keymap.set({'n', 'v'}, '<leader>p', '\"_c<Esc>p')
 
 -- Automatic commands
@@ -45,6 +45,27 @@ vim.api.nvim_create_autocmd("VimLeave", {
   pattern = "*",
   command = "call system('xclip -selection c', getreg('+'))",
 })
+
+-- https://stackoverflow.com/a/77415842/17709794
+-- When editing a file, always jump to the last known cursor position.
+-- Don't do it when the position is invalid, when inside an event handler,
+-- for a commit or rebase message
+-- (likely a different one than last time), and when using xxd(1) to filter
+-- and edit binary files (it transforms input files back and forth, causing
+-- them to have dual nature, so to speak)
+function RestoreCursorPosition()
+  local line = vim.fn.line("'\"")
+  if line > 1 and line <= vim.fn.line("$") and vim.bo.filetype ~= 'commit' and vim.fn.index({'xxd', 'gitrebase'}, vim.bo.filetype) == -1 then
+    vim.cmd('normal! g`"')
+  end
+end
+
+if vim.fn.has("autocmd") then
+  vim.api.nvim_create_autocmd("BufReadPost", {
+    pattern = "*",
+    command = "lua RestoreCursorPosition()",
+  })
+end
 
 -- Plugins
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
