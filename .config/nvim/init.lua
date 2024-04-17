@@ -35,9 +35,10 @@ vim.g.mapleader = ' '
 
 
 -- Remaps
-vim.keymap.set({'n', 'v'}, '<Space>', 'NOP')
+vim.keymap.set({'n', 'v'}, '<Space>', '<NOP>')
 vim.keymap.set('n', '<leader>n', ':tab split<CR>:Ex<CR>')
 vim.keymap.set({'n', 'v'}, '<leader>p', '\"_c<Esc>p')
+vim.keymap.set('n', '<leader>d', '3G5|"+yE')
 
 -- Automatic commands
 -- Keep clipboard data after leave
@@ -76,4 +77,11 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'morhetz/gruvbox'
+  -- Waits for neovim 0.8+
+  -- use({
+  --   "stevearc/oil.nvim",
+  --   config = function()
+  --     require("oil").setup()
+  --   end,
+  -- })
 end)
