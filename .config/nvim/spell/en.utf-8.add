@@ -13,3 +13,4 @@ nonblocking
 postgres
 serializable
 variadic
+autoencoder

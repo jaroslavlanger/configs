@@ -1,8 +1,10 @@
 {
     "workbench.colorTheme": "Solarized Light",
     "editor.fontSize": 16,
-    "editor.rulers": [80,120],
-    "window.zoomLevel": 2,
+    "editor.rulers": [
+        80,
+        120
+    ],
     "keyboard.dispatch": "keyCode",
     "vim.enableNeovim": true,
     "vim.neovimUseConfigFile": true,
