@@ -17,7 +17,8 @@ shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=-1
-HISTFILESIZE=20000
+HISTFILESIZE=100000
+# histignore - '^(fg|ls|cd (\.\.|~)/?|git (log|status|commit|push|pull))$'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -121,3 +122,4 @@ PATH=$PATH:~/.local/bin
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 . "$HOME/.cargo/env"
+alias xclipc='xclip -selection c'
